@@ -17,6 +17,7 @@
 		CA8190C021B9A548002FE124 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8190BF21B9A548002FE124 /* DeviceViewController.swift */; };
 		CA8190C221B9B05F002FE124 /* ShareObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8190C121B9B05F002FE124 /* ShareObject.swift */; };
 		CA8190C421B9D6BD002FE124 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA8190C321B9D6BD002FE124 /* alarm.mp3 */; };
+		CAAA569A21BF42B900E3010B /* BeaconTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAA569921BF42B900E3010B /* BeaconTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CA8190BF21B9A548002FE124 /* DeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
 		CA8190C121B9B05F002FE124 /* ShareObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareObject.swift; sourceTree = "<group>"; };
 		CA8190C321B9D6BD002FE124 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		CAAA569921BF42B900E3010B /* BeaconTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		CA8190AA21B99202002FE124 /* Fast Tag */ = {
 			isa = PBXGroup;
 			children = (
+				CAAA569921BF42B900E3010B /* BeaconTracker.swift */,
 				CA8190C321B9D6BD002FE124 /* alarm.mp3 */,
 				CA8190BD21B997F4002FE124 /* TSCDesignableView.swift */,
 				CA8190AB21B99202002FE124 /* AppDelegate.swift */,
@@ -134,6 +137,11 @@
 				TargetAttributes = {
 					CA8190A721B99202002FE124 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -224,6 +232,7 @@
 				CA8190C021B9A548002FE124 /* DeviceViewController.swift in Sources */,
 				CA8190BE21B997F4002FE124 /* TSCDesignableView.swift in Sources */,
 				CA8190AE21B99202002FE124 /* ViewController.swift in Sources */,
+				CAAA569A21BF42B900E3010B /* BeaconTracker.swift in Sources */,
 				CA8190AC21B99202002FE124 /* AppDelegate.swift in Sources */,
 				CA8190C221B9B05F002FE124 /* ShareObject.swift in Sources */,
 			);
@@ -372,6 +381,7 @@
 			baseConfigurationReference = 56FC49AC6207D70E6701FEBC /* Pods-Fast Tag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D4J7AW2S69;
 				INFOPLIST_FILE = "Fast Tag/Info.plist";
@@ -380,7 +390,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.guru.Fast-Tag";
+				PRODUCT_BUNDLE_IDENTIFIER = com.edapptable.beepbaby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = All_Dev_160129;
 				SWIFT_VERSION = 4.2;
@@ -393,6 +403,7 @@
 			baseConfigurationReference = C689EA72A2B3B3CA262AF943 /* Pods-Fast Tag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Fast Tag/Info.plist";
@@ -401,7 +412,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.guru.Fast-Tag";
+				PRODUCT_BUNDLE_IDENTIFIER = com.edapptable.beepbaby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

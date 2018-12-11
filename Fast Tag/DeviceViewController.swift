@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreBluetooth
+import CoreLocation
 
-class DeviceViewController: UIViewController, CBCentralManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+class DeviceViewController: UIViewController, CBCentralManagerDelegate, UITableViewDelegate, UITableViewDataSource, BeaconTrackerDelegate {
     
     @IBOutlet weak var toogle: UIButton!
     @IBOutlet weak var table: UITableView!
@@ -17,7 +18,7 @@ class DeviceViewController: UIViewController, CBCentralManagerDelegate, UITableV
     let centralManager = CBCentralManager(delegate: nil, queue: nil, options: nil)
     
     var isScanning = false;
-    var devices: [CBPeripheral]! = []
+    var devices: [CLBeacon]! = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +26,14 @@ class DeviceViewController: UIViewController, CBCentralManagerDelegate, UITableV
         centralManager.delegate = self
         // Do any additional setup after loading the view.
         updateUI()
+        
+        BeaconTracker.shared.delegate = self
+        BeaconTracker.shared.startBeaconTracking(ESTIMOTE_PROXIMITY_UUID, regionID: SAMPLE_REGION_ID)
     }
     
     @IBAction func onBack(_ sender: Any) {
-        stopScanning()
+        BeaconTracker.shared.stopBeaconTracking()
+//        stopScanning()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -70,19 +75,43 @@ class DeviceViewController: UIViewController, CBCentralManagerDelegate, UITableV
         updateUI()
     }
     
+    func beaconTracker(_ beaconTracker: BeaconTracker, didChangeNearestBeacon nearestBeacon: CLBeacon?) {
+        if let _ = nearestBeacon {
+            Log.e(nearestBeacon!.keyString)
+        }
+        else {
+            Log.e("no beacon")
+        }
+    }
+    
+    func beaconTrackerNeedToTurnOnBluetooth(_ beaconTracker: BeaconTracker) {
+        let alertController = UIAlertController(title: "Turn On Bluetooth", message: "Please turn on Bluetooth for Tag Scanning", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+            self.onBack(self.toogle)
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    func beaconTracker(_ beaconTracker: BeaconTracker, updateBeacons beacons: [CLBeacon]) {
+        self.devices = beacons
+        self.table.reloadData()
+    }
+
+    
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-//        NSLog("\(peripheral.name) \(advertisementData) \(RSSI.intValue)")
+        NSLog("\(peripheral.name) \(advertisementData) \(RSSI.intValue)")
         
         if peripheral.name != "MAGTAG" {
             return
         }
-        devices.append(peripheral)
-        print(devices)
-        self.table.reloadData()
+//        devices.append(peripheral)
+//        print(devices)
+//        self.table.reloadData()
     }
     
     
@@ -94,15 +123,16 @@ class DeviceViewController: UIViewController, CBCentralManagerDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let device = devices[indexPath.row]
-        cell.textLabel?.text = device.name
-        cell.detailTextLabel?.text = "\(device.identifier.uuidString)"
+        cell.textLabel?.text = "Baby Tag"
+        cell.detailTextLabel?.text = "\(device.major.intValue)"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let device = devices[indexPath.row]
-        ShareObject.instance.deviceId = device.identifier.uuidString
+//        ShareObject.instance.deviceId = device.identifier.uuidString
+        UserDefaults.standard.set(device.major.intValue, forKey: "tag_id")
         onBack(self.toogle)
     }
     
