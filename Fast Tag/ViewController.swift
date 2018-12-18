@@ -195,7 +195,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, BeaconTrackerD
                     self.trigger = -1
                 }
                 
-                message = "RSSI: \(self.prevRSSI) Battery: \(battery)% Belt: \(locked)"
+                message = "RSSI: \(self.prevRSSI) Battery: \(battery)% Belt: \(locked==1 ? "locked" : "unlocked")"
             }
             else {
                 if self.flag == true {

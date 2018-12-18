@@ -17,6 +17,7 @@
 		CA8190C021B9A548002FE124 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8190BF21B9A548002FE124 /* DeviceViewController.swift */; };
 		CA8190C221B9B05F002FE124 /* ShareObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8190C121B9B05F002FE124 /* ShareObject.swift */; };
 		CA8190C421B9D6BD002FE124 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA8190C321B9D6BD002FE124 /* alarm.mp3 */; };
+		CA93353A21C8DBC700C416D6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA93353921C8DBC700C416D6 /* SplashViewController.swift */; };
 		CAAA569A21BF42B900E3010B /* BeaconTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAA569921BF42B900E3010B /* BeaconTracker.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		CA8190BF21B9A548002FE124 /* DeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
 		CA8190C121B9B05F002FE124 /* ShareObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareObject.swift; sourceTree = "<group>"; };
 		CA8190C321B9D6BD002FE124 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		CA93353921C8DBC700C416D6 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CAAA569921BF42B900E3010B /* BeaconTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				CA8190B721B99205002FE124 /* Info.plist */,
 				CA8190BF21B9A548002FE124 /* DeviceViewController.swift */,
 				CA8190C121B9B05F002FE124 /* ShareObject.swift */,
+				CA93353921C8DBC700C416D6 /* SplashViewController.swift */,
 			);
 			path = "Fast Tag";
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				CA8190AE21B99202002FE124 /* ViewController.swift in Sources */,
 				CAAA569A21BF42B900E3010B /* BeaconTracker.swift in Sources */,
 				CA8190AC21B99202002FE124 /* AppDelegate.swift in Sources */,
+				CA93353A21C8DBC700C416D6 /* SplashViewController.swift in Sources */,
 				CA8190C221B9B05F002FE124 /* ShareObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,8 +386,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = D4J7AW2S69;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RZS99MMBKX;
 				INFOPLIST_FILE = "Fast Tag/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -392,7 +396,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.edapptable.beepbaby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = All_Dev_160129;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -404,8 +408,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RZS99MMBKX;
 				INFOPLIST_FILE = "Fast Tag/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
